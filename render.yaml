@@ -11,7 +11,21 @@ services:
       mountPath: /var/data
       sizeGB: 1
     envVars:
+      - key: MUSE_SECRET_KEY
+        generateValue: true
+      - key: MUSE_COOKIE_SECURE
+        value: "1"
       - key: MUSE_DATABASE
         value: /var/data/muse.db
       - key: MUSE_UPLOAD_DIR
         value: /var/data/uploads
+      - key: MUSE_SMTP_HOST
+        sync: false
+      - key: MUSE_SMTP_PORT
+        value: "587"
+      - key: MUSE_SMTP_USERNAME
+        sync: false
+      - key: MUSE_SMTP_PASSWORD
+        sync: false
+      - key: MUSE_SMTP_FROM
+        sync: false

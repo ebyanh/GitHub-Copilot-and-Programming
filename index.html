@@ -63,9 +63,9 @@
             <p class="invite-copy">Invite a friend into your world of inspiration.</p>
             <button class="invite-button" id="invite-button">Invite a friend <span aria-hidden="true">↗</span></button>
           </div>
-          <button class="profile-button">
+          <button class="profile-button account-button">
             <span class="avatar avatar-user">J</span>
-            <span class="profile-copy"><strong>Jamie Parker</strong><small>@jamieparker</small></span>
+            <span class="profile-copy"><strong id="profile-name">Welcome to Muse</strong><small id="profile-email">Browsing as a guest</small></span>
             <span class="profile-menu" aria-hidden="true">···</span>
           </button>
         </div>
@@ -83,6 +83,7 @@
           </label>
           <div class="topbar-actions">
             <button class="upload-button" id="upload-button"><span aria-hidden="true">＋</span> Create</button>
+            <button class="account-shortcut" id="account-shortcut">Sign in</button>
             <button class="notification-button" id="notifications-button" aria-label="Notifications">
               <span aria-hidden="true">♧</span><i></i>
             </button>
@@ -149,6 +150,54 @@
         </div>
       </main>
     </div>
+
+    <section class="auth-gate" id="auth-gate" aria-label="Muse account access" hidden>
+      <div class="auth-card">
+        <a class="brand auth-brand" href="#" aria-label="muse home">
+          <span class="brand-mark" aria-hidden="true">m</span>
+          <span>muse<span class="brand-period">.</span></span>
+        </a>
+        <p class="eyebrow auth-eyebrow"><span class="eyebrow-line"></span> A LITTLE SPACE FOR BIG IDEAS</p>
+        <div id="auth-options">
+          <h1 id="auth-title">Find your next<br /><span>big thing.</span></h1>
+          <p class="auth-copy">Save the things that move you. Share a little inspiration.</p>
+          <div class="auth-actions">
+            <button class="auth-primary" id="open-signup">Create an account</button>
+            <button class="auth-secondary" id="open-login">I already have an account</button>
+            <button class="auth-guest" id="browse-first">Browse first</button>
+          </div>
+        </div>
+        <form class="auth-form" id="auth-form" hidden>
+          <h2 id="auth-form-title"></h2>
+          <p class="auth-copy" id="auth-form-copy"></p>
+          <label class="auth-label" for="auth-email">Email address</label>
+          <input class="auth-input" id="auth-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+          <label class="auth-label" for="auth-password">Password</label>
+          <input class="auth-input" id="auth-password" name="password" type="password" autocomplete="current-password" required minlength="10" />
+          <button class="auth-primary" id="auth-submit" type="submit"></button>
+          <button class="auth-guest" id="auth-back" type="button">Back</button>
+        </form>
+        <div class="auth-pending" id="auth-pending" hidden>
+          <h2>Check your inbox.</h2>
+          <p class="auth-copy" id="auth-pending-copy"></p>
+          <a class="auth-secondary" id="local-verification-link" hidden>Open local verification link</a>
+          <button class="auth-secondary" id="resend-verification" type="button">Resend verification email</button>
+          <button class="auth-guest" id="pending-back" type="button">Back to sign in</button>
+        </div>
+        <div class="auth-confirm" id="auth-confirm" hidden>
+          <h2>One last thing.</h2>
+          <p class="auth-copy">Confirm your email address to finish creating your Muse account.</p>
+          <button class="auth-primary" id="confirm-email" type="button">Verify email address</button>
+        </div>
+        <div class="auth-account" id="auth-account" hidden>
+          <h2>Your Muse account</h2>
+          <p class="auth-copy" id="auth-account-email"></p>
+          <button class="auth-primary" id="signout-button" type="button">Sign out</button>
+          <button class="auth-guest" id="account-done" type="button">Back to Muse</button>
+        </div>
+        <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+      </div>
+    </section>
 
     <input id="file-input" type="file" accept=".png,.jpg,.jpeg,.webp,.gif,.mp4,.mov,.webm" multiple hidden />
     <div class="toast-region" id="toast-region" aria-live="polite"></div>
