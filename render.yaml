@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: muse
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    healthCheckPath: /
+    disk:
+      name: muse-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: MUSE_DATABASE
+        value: /var/data/muse.db
+      - key: MUSE_UPLOAD_DIR
+        value: /var/data/uploads

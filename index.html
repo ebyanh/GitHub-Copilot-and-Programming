@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta
+      name="description"
+      content="A little corner of the internet for everything that sparks an idea."
+    />
+    <title>muse — find your next big thing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="muse home">
+          <span class="brand-mark" aria-hidden="true">m</span>
+          <span>muse<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="sidebar-section">
+          <p class="sidebar-label">YOUR SPACE</p>
+          <nav class="main-nav">
+            <button class="nav-link active" data-view="discover">
+              <span class="nav-icon" aria-hidden="true">⌕</span>
+              <span>Discover</span>
+            </button>
+            <button class="nav-link" data-view="saved">
+              <span class="nav-icon bookmark-icon" aria-hidden="true">♧</span>
+              <span>Saved ideas</span>
+              <span class="saved-count" id="saved-count">0</span>
+            </button>
+            <button class="nav-link" data-view="following">
+              <span class="nav-icon" aria-hidden="true">◎</span>
+              <span>Following</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="sidebar-section collections-section">
+          <div class="section-heading">
+            <p class="sidebar-label">YOUR COLLECTIONS</p>
+            <button class="icon-button small-icon" id="new-collection" aria-label="Create a collection" title="New collection">＋</button>
+          </div>
+          <div class="collection-list" id="collection-list">
+            <button class="collection-link" data-collection="Interior mood"><span class="collection-dot dot-lilac"></span>Interior mood</button>
+            <button class="collection-link" data-collection="Little escapes"><span class="collection-dot dot-coral"></span>Little escapes</button>
+            <button class="collection-link" data-collection="Things to make"><span class="collection-dot dot-green"></span>Things to make</button>
+          </div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="invite-card">
+            <span class="invite-sparkle" aria-hidden="true">✳</span>
+            <p class="invite-title">Good ideas are better together.</p>
+            <p class="invite-copy">Invite a friend into your world of inspiration.</p>
+            <button class="invite-button" id="invite-button">Invite a friend <span aria-hidden="true">↗</span></button>
+          </div>
+          <button class="profile-button">
+            <span class="avatar avatar-user">J</span>
+            <span class="profile-copy"><strong>Jamie Parker</strong><small>@jamieparker</small></span>
+            <span class="profile-menu" aria-hidden="true">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand">
+            <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">m</span><span>muse<span class="brand-period">.</span></span></a>
+          </div>
+          <label class="search-box">
+            <span class="search-symbol" aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Search anything..." autocomplete="off" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <div class="topbar-actions">
+            <button class="upload-button" id="upload-button"><span aria-hidden="true">＋</span> Create</button>
+            <button class="notification-button" id="notifications-button" aria-label="Notifications">
+              <span aria-hidden="true">♧</span><i></i>
+            </button>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="welcome-section" aria-labelledby="welcome-title">
+            <div class="welcome-copy">
+              <p class="eyebrow"><span class="eyebrow-line"></span> TUESDAY, NOVEMBER 10</p>
+              <h1 id="welcome-title">Find your next<br /><span>big thing.</span><span class="title-sparkle" aria-hidden="true">✳</span></h1>
+              <p class="welcome-subtitle">A little corner of the internet for everything that sparks an idea.</p>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+              <div class="art-sun"></div>
+              <div class="art-image art-image-back"></div>
+              <div class="art-image art-image-front"></div>
+              <span class="art-star">✳</span>
+              <span class="art-caption">COLLECT<br />WHAT MOVES YOU</span>
+            </div>
+          </section>
+
+          <section class="trending-section" aria-label="Trending searches">
+            <div class="trending-label"><span class="trending-flame" aria-hidden="true">↗</span><span>Trending</span></div>
+            <div class="trending-list">
+              <button class="trend-chip" data-search="slow living"># slow living</button>
+              <button class="trend-chip" data-search="colorful spaces"># colorful spaces</button>
+              <button class="trend-chip" data-search="film photography"># film photography</button>
+              <button class="trend-chip" data-search="weekend projects"># weekend projects</button>
+            </div>
+          </section>
+
+          <section class="feed-section" aria-labelledby="feed-title">
+            <div class="feed-heading">
+              <div>
+                <p class="eyebrow feed-eyebrow">YOUR DAILY DOSE OF INSPIRATION</p>
+                <h2 id="feed-title">Made for your mood <span aria-hidden="true">✳</span></h2>
+              </div>
+              <button class="sort-button" id="sort-button"><span aria-hidden="true">☷</span> For you <span class="sort-caret">⌄</span></button>
+            </div>
+            <div class="filter-row">
+              <div class="category-filters" role="group" aria-label="Filter by category">
+                <button class="filter-chip selected" data-category="all">For you</button>
+                <button class="filter-chip" data-category="interiors">Interiors</button>
+                <button class="filter-chip" data-category="design">Design</button>
+                <button class="filter-chip" data-category="travel">Travel</button>
+                <button class="filter-chip" data-category="fashion">Style</button>
+                <button class="filter-chip" data-category="food">Food</button>
+              </div>
+              <div class="media-filters" role="group" aria-label="Filter by media type">
+                <button class="media-chip selected" data-media="all">All</button>
+                <button class="media-chip" data-media="image">Images</button>
+                <button class="media-chip" data-media="gif">GIFs</button>
+                <button class="media-chip" data-media="video">Videos</button>
+              </div>
+            </div>
+
+            <div class="feed-status" id="feed-status" aria-live="polite"></div>
+            <div class="masonry-grid" id="masonry-grid" aria-live="polite"></div>
+            <button class="load-more" id="load-more">You’re all caught up <span aria-hidden="true">✳</span></button>
+          </section>
+
+          <footer class="footer"><span>Made for curious minds.</span><span>© 2025 muse <span class="footer-heart">♥</span></span></footer>
+        </div>
+      </main>
+    </div>
+
+    <input id="file-input" type="file" accept=".png,.jpg,.jpeg,.webp,.gif,.mp4,.mov,.webm" multiple hidden />
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+    <dialog class="idea-dialog" id="idea-dialog">
+      <button class="dialog-close" id="dialog-close" aria-label="Close">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
